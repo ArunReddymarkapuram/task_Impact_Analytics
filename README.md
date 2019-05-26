@@ -1,6 +1,5 @@
 # task_Impact_Analytics
-Keras implementation of the Bidirectional LSTM and CNN model for CoNLL 2003 data
-Code adapted from: https://github.com/kamalkraj/Named-Entity-Recognition-with-Bidirectional-LSTM-CNNs .
+Keras implementation of the Bidirectional LSTM and CNN model for CoNLL 2003
 
 # Result
 The implementation achieves a test F1 score of ~86 with 30 epochs. Increase the number of epochs to 80 reach an F1 over 90 or more.
