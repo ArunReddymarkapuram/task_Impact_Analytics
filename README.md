@@ -12,3 +12,4 @@ For glove vector representation please visit tis article https://nlp.stanford.ed
     2) Keras 2.1.6
     3) Tensorflow 1.8
     4) Stanford GloVE embeddings
+#
