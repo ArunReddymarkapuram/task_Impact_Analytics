@@ -4,15 +4,14 @@ from keras.preprocessing.sequence import pad_sequences
 
 
 def readfile(filename):
+    '''return format :
+    [['EU','B-ORG'],['rejects','O'],['German','B-MISC'],['call','O'],['to','O'],['boycott','O'],
+    ['British','B-MISC'],['lamb','O'],['.','O']]
     '''
-    read file
-    return format :
-    [ ['EU', 'B-ORG'], ['rejects', 'O'], ['German', 'B-MISC'], ['call', 'O'], ['to', 'O'], ['boycott', 'O'], ['British', 'B-MISC'], ['lamb', 'O'], ['.', 'O'] ]
-    '''
-    f = open(filename)
+    file = open(filename)
     sentences = []
     sentence = []
-    for line in f:
+    for line in file:
         if len(line) == 0 or line.startswith('-DOCSTART') or line[0] == "\n":
             if len(sentence) > 0:
                 sentences.append(sentence)
@@ -38,7 +37,8 @@ def getCasing(word, caseLookup):
 
     if word.isdigit():  # Is a digit
         casing = 'numeric'
-    elif digitFraction > 0.5:
+    eli
+    digitFraction > 0.5:
         casing = 'mainly_numeric'
     elif word.islower():  # All lower case
         casing = 'allLower'
@@ -52,7 +52,7 @@ def getCasing(word, caseLookup):
     return caseLookup[casing]
 
 
-# return batches ordered by words in sentence
+# return batches
 def createEqualBatches(data):
     
     
@@ -70,7 +70,7 @@ def createEqualBatches(data):
     z = 0
     start = 0
     for end in num_words:
-        # print("start", start)
+        print("start", start)
         for batch in data[start:end]:
             # if len(batch[0]) == i:  # if sentence has i words
             batches.append(batch)
@@ -157,8 +157,7 @@ def iterate_minibatches(dataset, batch_len):
         yield np.asarray(labels), np.asarray(tokens), np.asarray(caseing), np.asarray(char)        
 
 
-# returns data with character information in format
-# [['EU', ['E', 'U'], 'B-ORG\n'], ...]
+# returns data with character information
 def addCharInformation(Sentences):
     for i, sentence in enumerate(Sentences):
         for j, data in enumerate(sentence):
